@@ -20,7 +20,7 @@ public class WebSecurity {
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/users/welcome")
                 .permitAll()
-                .requestMatchers("/users/manager")
+                .requestMatchers("/users/manager", "/users/userDetails", "/users/authenticationContext")
                 .hasAnyRole("manager", "director")
                 .requestMatchers("/users/director")
                 .hasRole("director")
