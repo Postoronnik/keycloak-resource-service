@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 @AllArgsConstructor
@@ -12,4 +13,5 @@ import java.util.List;
 public class UserInfo {
     private String username;
     private List<String> userRoles;
+    private Map<String, String> permissions;
 }
