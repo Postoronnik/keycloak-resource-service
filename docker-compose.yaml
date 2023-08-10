@@ -23,7 +23,7 @@ services:
       - myproject
 
   iam-app:
-    image: "postoronnik/iam-app:v7"
+    build: .
     container_name: "iam-app"
     ports:
       - "8081:8081"
@@ -42,6 +42,7 @@ services:
 
   keycloak-db:
     image: postgres:latest
+    container_name: "keycloak-db"
     expose:
       - "5432"
     environment:
@@ -57,7 +58,7 @@ services:
     image: postgres:latest
     container_name: "db"
     ports:
-      - "5433:5432"
+      - "5433"
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=admin
