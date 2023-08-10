@@ -1,7 +1,6 @@
 package com.example.keycloakresourceservice.repository.impl;
 
 import com.example.keycloakresourceservice.domain.dto.EmployeeDto;
-import com.example.keycloakresourceservice.domain.enums.Attributes;
 import com.example.keycloakresourceservice.repository.EmployeeDao;
 import com.example.keycloakresourceservice.service.SecurityContextHelper;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
@@ -31,7 +29,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
             final String name,
             final String sort
     ) {
-        final var res = jdbcTemplate.query(
+
+        return jdbcTemplate.query(
                 prepareSqlRequest(name, sort, SecurityContextHelper.getDepartment()),
                 (ResultSet rs, int rowNum) -> new EmployeeDto(
                         rs.getString("empl_name"),
@@ -39,8 +38,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
                         rs.getString("empl_department")
                 )
         );
-
-        return res;
     }
 
     private String prepareSqlRequest(

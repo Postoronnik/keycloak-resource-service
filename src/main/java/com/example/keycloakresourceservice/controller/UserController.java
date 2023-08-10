@@ -3,7 +3,6 @@ package com.example.keycloakresourceservice.controller;
 import com.example.keycloakresourceservice.domain.UserInfo;
 import com.example.keycloakresourceservice.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
