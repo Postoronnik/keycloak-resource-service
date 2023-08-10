@@ -2,7 +2,6 @@ package com.example.keycloakresourceservice.service;
 
 
 import com.example.keycloakresourceservice.domain.UserInfo;
-import com.example.keycloakresourceservice.domain.enums.Attributes;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -23,19 +21,10 @@ public class UserService {
         final var realmAccess = Optional.ofNullable((Map<String, Object>) credentials.getClaims().get("realm_access"));
         final var userRoles = (List<String>) realmAccess.orElseThrow().get("roles");
 
-        return new UserInfo(username, userRoles, getPermissions(credentials.getClaims()));
+        return new UserInfo(username, userRoles, SecurityContextHelper.getDepartment());
     }
 
     public Authentication getAuthenticationContext() {
         return SecurityContextHolder.getContext().getAuthentication();
-    }
-
-    private Map<String, String> getPermissions(Map<String, Object> claims) {
-        final var definedPermissions = Attributes.getPermissions();
-
-        return definedPermissions
-                .stream()
-                .map(permission -> Map.entry(permission.getName(), claims.get(permission.getName()) != null ? (String) claims.get(permission.getName()) : ""))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 }

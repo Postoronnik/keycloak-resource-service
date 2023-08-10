@@ -30,6 +30,7 @@ public class UserController {
         return userService.getUserInfo();
     }
 
+    //Endpoint to look at Structure and values of authentication context
     @GetMapping("/authenticationContext")
     public Authentication getAuthenticationContext() {
         return userService.getAuthenticationContext();

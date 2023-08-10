@@ -13,5 +13,5 @@ import java.util.Map;
 public class UserInfo {
     private String username;
     private List<String> userRoles;
-    private Map<String, String> attributes;
+    private String attributes;
 }
