@@ -2,8 +2,23 @@ server:
   port: 8081
 
 spring:
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: ${JDBC_URL:jdbc:postgresql://localhost:5433/app}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:admin}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    defer-datasource-initialization: true
+
   security:
     oauth2:
       resource-server:
         jwt:
-          jwk-set-uri: http://localhost:8080/auth/realms/iam-keycloak-poc/protocol/openid-connect/certs
+          jwk-set-uri: ${KEYCLOAK_JWK_SET_URI:http://localhost:8080/auth/realms/iam-keycloak-poc/protocol/openid-connect/certs}

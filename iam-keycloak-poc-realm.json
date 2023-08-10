@@ -735,10 +735,10 @@
           "protocolMapper": "oidc-usermodel-attribute-mapper",
           "consentRequired": false,
           "config": {
-            "user.attribute": "customPermission",
+            "user.attribute": "department",
             "id.token.claim": "false",
             "access.token.claim": "true",
-            "claim.name": "customPermission",
+            "claim.name": "department",
             "userinfo.token.claim": "true"
           }
         },

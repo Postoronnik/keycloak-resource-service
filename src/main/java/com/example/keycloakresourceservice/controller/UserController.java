@@ -26,11 +26,6 @@ public class UserController {
         return "Welcome manager/director";
     }
 
-    @GetMapping("/director")
-    public String directorLogin() {
-        return "Welcome director";
-    }
-
     @GetMapping("/userDetails")
     public UserInfo getUserDetails() {
         return userService.getUserInfo();
