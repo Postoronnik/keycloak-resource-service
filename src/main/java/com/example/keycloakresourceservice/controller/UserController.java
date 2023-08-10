@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping("/manager")
     public String managerLogin() {
-        return "Welcome manager/director";
+        return "Welcome manager";
     }
 
     @GetMapping("/userDetails")
