@@ -16,8 +16,4 @@ public class UserController {
         return "Hello you are authorized";
     }
 
-    @GetMapping("/manager")
-    public String managerLogin() {
-        return "Welcome manager";
-    }
 }
