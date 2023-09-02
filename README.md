@@ -21,7 +21,7 @@ Add annotations `@Configuration` and `@EnableWebSecurity`. <p>
 It allows to configure Spring Security configuration defined in any `WebSecurityConfigurer` class.<p>
 
 ### Step 3. Configure role based access
-In newest versions of Spring Security you need to define `@Beans` with needed configurations.<p>
+In Spring Security versions 3.0.0 and above you need to define `@Beans` with needed configurations.<p>
 For role based configuration you need to define `SecurityFilterChain` bean. <p>
 For role based configuration you also need converter for Keycloak roles. <p>
 Here is code for converter class:
@@ -45,7 +45,7 @@ Here is code for converter class:
         }
 
     }
-In this class you override base `convert` function of class `Converrter`.<p>
+In this class you override base `convert` function of class `Converter`.<p>
 It allows to manipulate with converting role by you own.<p>
 The main difference between simple JWT converter and this is that you need to get all data 
 from `realm_access` key.<p> 
@@ -80,7 +80,7 @@ access users that have role `manager`. Also `requestMatchers()` and `hasAnyRole(
 allow you to define any number of endpoints and roles. Look at the example above.
 After configuring role based access to endpoint you need to configure OAuth2 resource server support
 and define how to work with JWT token.<p>
-As you previously define hwo to work with JWT from Keycloak you need to define converter for OAuth2
+As you previously define how to work with JWT from Keycloak you need to define converter for OAuth2
 in `jwtAuthenticationConverter()`.
 
 ### Step 4. Final configurations to communicate with Keycloak
@@ -103,13 +103,13 @@ Notice that for working host we are using `keycloak`, the name of container in w
 
 ### Step 5. Testing using Postman.
 
-Firstly let's create new user that doesn't have `manager` role. Use previous guid to do it.
+Firstly let's create new user that doesn't have `manager` role. Use previous guide to do it.
 Log in using new user. Try to call both API endpoints of service and you should see
-this result:
+this result: <p>
 ![img_3.png](img_3.png) <p>
 ![img_4.png](img_4.png) <p>
 After you verified that new user cannot access to `Get All Employees By Regex Name` 
-endpoint try to log in using manager user. and you should see this result:
+endpoint try to log in using manager user. and you should see this result: <p>
 ![img_1.png](img_1.png) <p>
 ![img_2.png](img_2.png) <p>
 
