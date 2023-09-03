@@ -14,6 +14,6 @@ public class EmployeeService {
     private final EmployeeJpa employeeJpa;
 
     public List<Employee> getEmployeesByDepartment() {
-        return employeeJpa.findAllByEmployeeDepartment();
+        return employeeJpa.findAllByEmployeeDepartment(SecurityContextHelper.getDepartment());
     }
 }
