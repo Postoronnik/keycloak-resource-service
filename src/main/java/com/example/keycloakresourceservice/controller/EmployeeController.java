@@ -18,6 +18,6 @@ public class EmployeeController {
 
     @GetMapping("/search")
     public List<Employee> getEmployees() {
-        return employeeService.getEmployeesByDepartment();
+        return employeeService.findAllEmployees();
     }
 }
