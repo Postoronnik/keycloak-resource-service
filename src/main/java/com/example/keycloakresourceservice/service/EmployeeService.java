@@ -13,7 +13,7 @@ public class EmployeeService {
 
     private final EmployeeJpa employeeJpa;
 
-    public List<Employee> getEmployeesByDepartment() {
-        return employeeJpa.findAllByEmployeeDepartment();
+    public List<Employee> findAllEmployees() {
+        return employeeJpa.findAllEmployees();
     }
 }
