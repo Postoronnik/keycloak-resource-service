@@ -2,7 +2,7 @@
 ## Update iam-keycloak-poc-realm.json file
 Go to Keycloak console and in left menu find `Export`. <p>
 Select all sliders click `Export` and confirm export. <p>
-![img.png](img.png) <p>
+![img.png](docs/images/img19.png) <p>
 Open file and copy all json to `iam-keycloak-poc-realm.json` file in project.<p>
 Now all configurations from previous task is imported into this. <p>
 
@@ -106,11 +106,11 @@ Notice that for working host we are using `keycloak`, the name of container in w
 Firstly let's create new user that doesn't have `manager` role. Use previous guide to do it.
 Log in using new user. Try to call both API endpoints of service and you should see
 this result: <p>
-![img_3.png](img_3.png) <p>
-![img_4.png](img_4.png) <p>
+![img_3.png](docs/images/img_22.png) <p>
+![img_4.png](docs/images/img_23.png) <p>
 After you verified that new user cannot access to `Get All Employees By Regex Name` 
 endpoint try to log in using manager user. and you should see this result: <p>
-![img_1.png](img_1.png) <p>
-![img_2.png](img_2.png) <p>
+![img_1.png](docs/images/img_20.png) <p>
+![img_2.png](docs/images/img_21.png) <p>
 
 If everything is working as shown on pictures, then you have configured all successfully.
