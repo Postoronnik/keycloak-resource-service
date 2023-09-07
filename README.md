@@ -101,7 +101,7 @@ Here is example:
 Run Postman and call `Get All Employees By Regex Name` API.
 You should see all employees that are belongs to department that is defined in user attribute.
 Here is example: 
-![img.png](img.png)
+![img.png](docs/images/img_26.png)
 
 If user do not have department attribute then he will see empty array.
 
