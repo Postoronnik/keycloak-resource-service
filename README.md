@@ -1,109 +1,29 @@
-# Retrieve custom attribute from JWT token and use it for data filtering
+# How to launch project
 
-## Retrieve custom attribute from JWT token
-### Step 1. Create helper class to work with Spring SecurityContext
-In `service` package create class `SecurityContextHelper`. <p>
-This class will support working with different `SecurityContext` elements. 
-In our case it will retrieve custom attribute.
+## Preparations
+Install docker machine on your local machine using one of proposed guide by this link: https://docs.docker.com/engine/install/
 
-### Step 2. Implement retrieving of custom attribute 
-In our case we will retrieve only `department` attribute so lets create a `static` function for it.
+## Launch project
 
-    public static String getDepartment() {
-        final var jwtToken = SecurityContextHolder.getContext().getAuthentication();
-        final var credentials = (Jwt)jwtToken.getCredentials();
+Go to root directory of project in terminal/command line and execute this command
+```bash
+docker-compose up --build
+```
+It will pull Keycloak image, build image of project and run it simultaneously in container.
+App will be running on 8081 port and Keycloak on 8080.
 
-        return (String) credentials.getClaims().get("department");
-    }
+## Working with project
 
+Download Postman to perform HTTP requests.
+Select version for your system and download here https://www.postman.com/downloads/postman-agent/
 
-This function is retrieving `Authentication` JWT token from Spring `SecurityContext`.
-After this you retrieve JWT token from Authentication Context. 
-Then you retrieve JWt token claims map. In this map you have all your JWT token key-values.
-As we need custom attribute that you defined earlier as `department` you need to get it from the map.
+After starting Postman import collection using this link https://api.postman.com/collections/15826172-a989b383-a314-4aed-9990-56674dac1887?access_key=PMAT-01H7W1HH74ED4XJQ50NJ7DTJE7
 
-To investigate how your JWT token looks like you can copy it from Postman and check it
-on this site https://jwt.io/.
-In payload section you will see all information about authentication, user, user privileges
-and custom attributes that are assigned on him.
+`OAuthn2 token` folder commands are responsible for acquiring access token
+`Service` folder commands are responsible for requests to Spring Boot app.
 
-Here is example payload:
-
-    {
-        "exp": 1692265242,
-        "iat": 1692264942,
-        "auth_time": 1692264892,
-        "jti": "af482a33-64e1-475c-8b98-a3b30469c1b6",
-        "iss": "http://localhost:8080/auth/realms/iam-keycloak-realm",
-        "aud": "account",
-        "sub": "ab4d6c45-c341-43f6-9799-7fccda862ee5",
-        "typ": "Bearer",
-        "azp": "iam-user-data",
-        "session_state": "b38028f7-73e1-431d-bee4-85c35444d1af",
-        "acr": "1",
-        "allowed-origins": [
-        "http://localhost:8080"
-        ],
-        "realm_access": {
-        "roles": [
-        "manager",
-        "default-roles-iam-keycloak-realm",
-        "offline_access",
-        "uma_authorization"
-        ]
-        },
-        "resource_access": {
-        "account": {
-        "roles": [
-        "manage-account",
-        "manage-account-links",
-        "view-profile"
-        ]
-        }
-        },
-        "scope": "openid email profile",
-        "sid": "b38028f7-73e1-431d-bee4-85c35444d1af",
-        "email_verified": false,
-        "name": "John Doe",
-        "preferred_username": "johndoe",
-        "given_name": "John",
-        "department": "IT",
-        "family_name": "Doe",
-        "email": "johndoe@email.com"
-    }
-
-As you  can see there is `department` key with `IT` values. 
-It is previously defined custom attribute.
-
-## Filter data from database by department
-### Step 1. Update JPA @Query
-
-To filter data by `department` in `@Qeury` annotation add department values as 
-`@Param` to function signature and add `WHERE` clause to `SELECT`.
-
-Here is example: 
-
-    @Query("SELECT e FROM Employee e WHERE e.employeeDepartment = :department")
-    List<Employee> findAllByEmployeeDepartment(@Param("department") String department);
-
-### Step 2. Update EmployeeService
-
-In `findAllByEmployeeDepartment` function signature add call of `getDepartment` function
-from `SecurityContextHelper` class.
-
-Here is example:
-
-    public List<Employee> getEmployeesByDepartment() {
-        return employeeJpa.findAllByEmployeeDepartment(SecurityContextHelper.getDepartment());
-    }
-
-## Postman testing
-Run Postman and call `Get All Employees By Regex Name` API.
-You should see all employees that are belongs to department that is defined in user attribute.
-Here is example: 
-![img.png](img.png)
-
-If user do not have department attribute then he will see empty array.
-
-Also to verify that your user have department or correct department value use your token
-and pass it to this site https://jwt.io/.
+To acquire token you need to copy `Get token` request, paste to you browser and perform Sign In process in Keycloak server
+Then after successful sign in, copy `code` part from URL.
+Paste copied part into `Get access token` request and execute it in Postman.
+In response, you will see data about access token that you have acquired.
+`access_token` value will be copied to environment variable and will be used in requests to Spring Boot App.
