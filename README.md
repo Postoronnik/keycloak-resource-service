@@ -59,7 +59,8 @@ After this you will be redirected to your client page. <p>
 Verify that `Enabled`, `Standard Flow Enabled`, `Direct Access Grants Enabled` and `Backchannel Logout Session Required` are turned on.  
 All other sliders are disabled. <p>
 Change `Client Protocol` to `openid-connect` and `Access Type` to `confidential`. <p>
-Into `Valid Redirect URIs` enter URI that will handle URI for accessing code for token and click `+` to add it.<p>
+Into `Valid Redirect URIs` enter URI that will handle URI for accessing code for token and click `+` to add it.
+For valid redirect URI use application port `8081` and unused endpoints as  `/callback`.<p>
 Into `Web Origins` enter URI of your service and click `+` to add it.<p>
 Complete configuration looks like this.<p>
 ![img_7.png](docs/images/img_7.png)<p>
@@ -345,5 +346,10 @@ Here is example:
 
 If user do not have department attribute then he will see empty array.
 
-Also to verify that your user have department or correct department value use your token
+Also, to verify that your user have department or correct department value use your token
 and pass it to this site https://jwt.io/.
+
+Also, try to create new user that will have other department value and try to perform logging and perform `Get All Employyes`.
+You should see employees with the same `employeeDepartment` as your `department` value. <p>
+Now try to change value of `department` for newly created user, perform logging and call `Get All Employyes`.
+If employees result changed as expected, then update applied successfully.
