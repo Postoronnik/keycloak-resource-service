@@ -11,5 +11,5 @@ import java.util.UUID;
 public interface EmployeeJpa extends JpaRepository<Employee, UUID> {
 
     @Query("SELECT e FROM Employee e")
-    List<Employee> findAllByEmployeeDepartment();
+    List<Employee> findAllEmployees();
 }
