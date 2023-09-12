@@ -48,7 +48,7 @@ In response, you will see data about access token that you have acquired.
 3. [task-3-working-with-spring-security-context.md](task-3-working-with-spring-security-context.md)
 
 # Branches
-1. [task-1-configure-keycloak-example](../keycloak-resource-service/tree/raw-learning-project)
-2. [task-2-configure-web-security-example](../keycloak-resource-service/tree/task-2)
-3. [task-3-working-with-spring-security-context-example](../keycloak-resource-service/tree/task-3)
-4. [iam-poc-app](../keycloak-resource-service/tree/final-version)
+1. [task-1-configure-keycloak-example](https://github.com/Postoronnik/keycloak-resource-service/tree/raw-learning-project)
+2. [task-2-configure-web-security-example](https://github.com/Postoronnik/keycloak-resource-service/tree/task-2)
+3. [task-3-working-with-spring-security-context-example](https://github.com/Postoronnik/keycloak-resource-service/tree/task-3)
+4. [iam-poc-app](https://github.com/Postoronnik/keycloak-resource-service/tree/final-version)
