@@ -1,6 +1,6 @@
 # How to work with repository 
 
-This repository contains 5 branches:
+This repository contains 5 [branches](#branches):
   - master
   - task-1-configure-keycloak-example
   - task-2-configure-web-security-example
@@ -46,3 +46,9 @@ In response, you will see data about access token that you have acquired.
 1. [task-1-configure-keycloak.md](task-1-configure-keycloak.md)
 2. [task-2-configure-web-security.md](task-2-configure-web-security.md)
 3. [task-3-working-with-spring-security-context.md](task-3-working-with-spring-security-context.md)
+
+# Branches
+1. [task-1-configure-keycloak-example](https://github.com/Postoronnik/keycloak-resource-service/tree/raw-learning-project)
+2. [task-2-configure-web-security-example](https://github.com/Postoronnik/keycloak-resource-service/tree/task-2)
+3. [task-3-working-with-spring-security-context-example](https://github.com/Postoronnik/keycloak-resource-service/tree/task-3)
+4. [iam-poc-app](https://github.com/Postoronnik/keycloak-resource-service/tree/final-version)
