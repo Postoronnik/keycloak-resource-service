@@ -12,7 +12,7 @@ task-1-..., task-3-... and task-3-... are branches that contain completed regard
 iam-poc-app is a branch with first complete working example of project.
 It has a lot of differences with final variant that you will have during doing tasks, but the logic is the same, just a bit improved.
 
-Before starting doing you tasks you need to fork and clone this project and then do [How to launch project](#How to launch project) instructions. <br/>
+Before starting doing you tasks you need to fork and clone this project and then do [How to launch project](#How-to-launch-project) instructions. <br/>
 Tasks you can find here [Tasks](#Tasks). Do them one by one and if you stuck with some problem go to one of the branches related to the task.
 
 # How to launch project
