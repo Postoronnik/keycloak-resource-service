@@ -16,4 +16,8 @@ public class EmployeeService {
     public List<Employee> getEmployeesByDepartment() {
         return employeeJpa.findAllByEmployeeDepartment(SecurityContextHelper.getDepartment());
     }
+
+    public List<Employee> getEmployeesByGroup() {
+        return employeeJpa.findAllByEmployeeDepartment(SecurityContextHelper.getGroups());
+    }
 }

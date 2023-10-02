@@ -30,7 +30,7 @@ public class WebSecurity {
         http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/users/welcome")
                 .permitAll()
-                .requestMatchers("/employees/search")
+                .requestMatchers("/employees/search", "/employees/search/group")
                 .hasAnyRole("manager")
         ).oauth2ResourceServer(oauth2 -> oauth2
                 .jwt()

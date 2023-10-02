@@ -20,4 +20,10 @@ public class EmployeeController {
     public List<Employee> getEmployees() {
         return employeeService.getEmployeesByDepartment();
     }
+
+    @GetMapping("/search/group")
+    public List<Employee> getEmployeesByGroup() {
+        return employeeService.getEmployeesByGroup();
+    }
+
 }
