@@ -3,12 +3,12 @@
 ### Step 1. Create groups
 
 Go to `Groups` tab located in left menu under `Manage` block. Click new and type name of group.<br>
-![img.png](docs/img.png)
+![img.png](docs/images/img.png)
 
 Name can be any, but for app we need to define it with this name format. `Name of department`Group.<br>
 Create groups for all departments names. here is the list of supported departments: `HR, Sales, Marketing, Finance, IT`.<br>
 After creating return to `Groups` tab, and you should see all your Groups.<br>
-![img_2.png](docs/img_2.png)
+![img_2.png](docs/images/img_2.png)
 
 ### Step 2. Create groups mapping
 To add groups to the JWT token body you need to create mapping as for department.<br>
@@ -21,21 +21,21 @@ Do this configs for slider:
 - Add to access token - ON.
 - Add to userinfo - OFF.
 
-![img_6.png](docs/img_6.png)
+![img_6.png](docs/images/img_6.png)
 
 ### Step 3. Add groups to user
 Go to `Users` -> `View all users` -> select your user -> `Groups`. <br>
-![img_3.png](docs/img_3.png)
+![img_3.png](docs/images/img_3.png)
 
 In right column select group and click `Join`. <br>
 Group will be assigned to user and you will see it in right column. <br>
 Add several of them, but not all. Two will be fine. <br>
-![img_4.png](docs/img_4.png)
+![img_4.png](docs/images/img_4.png)
 
 ### Step 4. Verify that groups are added to JWT token.
 Perform logging with configured user and acquire token. Go to https://jwt.io/ and pass it to `Encoded` column. <br>
 If all was configured correctly you will see `groups` key and added to user groups. <br>
-![img_7.png](docs/img_7.png)
+![img_7.png](docs/images/img_7.png)
 
 ## Update Spring Boot App
 In Spring Boot App manager user should see employees from departments that are related to groups. <br>
@@ -104,5 +104,5 @@ After this you should be able to perform request from Postman to you new endpoin
 ### Step 4. Testing with Postman
 Go to Postman, acquire token and perform `Get All Employees By groups` request.<br>
 You should see list of employees from departments that are defined in manager user groups. See example below.<br>
-![img_5.png](docs/img_5.png)
+![img_5.png](docs/images/img_5.png)
 
