@@ -14,6 +14,6 @@ public interface EmployeeJpa extends JpaRepository<Employee, UUID> {
     @Query("SELECT e FROM Employee e WHERE e.employeeDepartment = :department")
     List<Employee> findAllByEmployeeDepartment(@Param("department") String department);
 
-    @Query("SELECT e FROM Employee e WHERE e.employeeDepartment IN :groups")
-    List<Employee> findAllByEmployeeDepartment(@Param("groups") List<String> groups);
+    @Query("SELECT e FROM Employee e WHERE e.employeeDepartment IN :departments")
+    List<Employee> findAllByEmployeeDepartment(@Param("departments") List<String> departments);
 }

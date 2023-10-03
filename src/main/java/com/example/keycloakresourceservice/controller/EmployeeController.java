@@ -21,9 +21,9 @@ public class EmployeeController {
         return employeeService.getEmployeesByDepartment();
     }
 
-    @GetMapping("/search/group")
-    public List<Employee> getEmployeesByGroup() {
-        return employeeService.getEmployeesByGroup();
+    @GetMapping("/search/departments")
+    public List<Employee> getEmployeesByDepartments() {
+        return employeeService.getEmployeesByDepartments();
     }
 
 }

@@ -14,16 +14,16 @@ public class SecurityContextHelper {
         return (String) credentials.getClaims().get("department");
     }
 
-    public static List<String> getGroups() {
+    public static List<String> getDepartments() {
         final var jwtAuthenticationContext = SecurityContextHolder.getContext().getAuthentication();
         final var credentials = (Jwt)jwtAuthenticationContext.getCredentials();
-        final var groups = (List<String>) credentials.getClaims().get("groups");
+        final var groups = (List<String>) credentials.getClaims().get("departments");
 
         return groups
                 .stream()
                 .map(group ->
                         group
-                        .replace("Group", "")
+                        .replace("Department", "")
                         .trim()
                 )
                 .toList();
